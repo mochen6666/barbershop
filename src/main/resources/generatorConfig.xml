@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+  <!-- Java类包路径，不可缺少 -->
+  <classPathEntry location="D:\m2_repository\mysql\mysql-connector-java\5.1.47\mysql-connector-java-5.1.47.jar"/>
+
+  <context id="context1">
+    <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/barbershop?characterEncoding=utf-8&amp;useUnicode=true&amp;useSSL=false" 
+    driverClass="com.mysql.jdbc.Driver" password="Poison+626" userId="root" />
+    <!-- 生成pojo持久化对象 -->
+    <javaModelGenerator targetPackage="com.bbs.pojo" targetProject="barbershop/src/main/java" />
+    <!-- 生成mapper映射文件 -->
+    <sqlMapGenerator targetPackage="com.bbs.mapper" targetProject="barbershop/src/main/resources" />
+    <!-- 生成mapper对应的接口 -->
+    <javaClientGenerator targetPackage="com.bbs.mapper" targetProject="barbershop/src/main/java" type="XMLMAPPER" />
+    <!-- 配置持久化对象数据表 -->
+    <table tableName="consumption" enableCountByExample="false"
+    	enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false"></table>
+    <table tableName="dictionary" enableCountByExample="false"
+    	enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false"></table>
+    <table tableName="member" enableCountByExample="false"
+    	enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false"></table>
+    <table tableName="service" enableCountByExample="false"
+    	enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false"></table>
+    <table tableName="staff" enableCountByExample="false"
+    	enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false"></table>
+    <table tableName="vipconsumer" enableCountByExample="false"
+    	enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false"></table>
+  </context>
+</generatorConfiguration>

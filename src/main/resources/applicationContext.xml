@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- 配置组件扫描 -->
+	<context:component-scan base-package="com.bbs.service"></context:component-scan>
+
+	<!-- 引入外部化配置文件 -->
+	<context:property-placeholder location="classpath:database.properties" system-properties-mode="NEVER"/>
+
+	<!-- 配置数据源 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName">
+			<value>${driverClass}</value>
+		</property>
+		<property name="url">
+			<value>${url}</value>
+		</property>
+		<property name="username">
+			<value>${username}</value>
+		</property>
+		<property name="password">
+			<value>${password}</value>
+		</property>
+	</bean>
+
+	<!-- 配置SessionFactory -->
+	<bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource"/>
+		</property>
+		<property name="typeAliasesPackage">
+			<value>com.bbs.pojo</value>
+		</property>
+		<property name="mapperLocations">
+			<value>classpath:com/bbs/mapper/*.xml</value>
+		</property>
+		<property name="plugins">
+			<array>
+				<bean class="com.github.pagehelper.PageInterceptor"></bean>
+			</array>
+		</property>
+	</bean>
+	
+	<!-- 配置mapper扫描器 -->
+	<bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage">
+			<value>com.bbs.mapper</value>
+		</property>
+		<property name="sqlSessionFactoryBeanName">
+			<value>sessionFactory</value>
+		</property>
+	</bean>
+	
+	<!-- 事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource">
+			<ref bean="dataSource"/>
+		</property>
+	</bean>
+	
+	<!-- 注解事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+</beans>
