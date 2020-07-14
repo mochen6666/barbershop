@@ -9,7 +9,7 @@
     -->
     <id column="staId" jdbcType="INTEGER" property="staid" />
     <result column="staCode" jdbcType="VARCHAR" property="stacode" />
-    <result column="staPassword" jdbcType="INTEGER" property="stapassword" />
+    <result column="staPassword" jdbcType="VARCHAR" property="stapassword" />
     <result column="staName" jdbcType="VARCHAR" property="staname" />
     <result column="staSex" jdbcType="INTEGER" property="stasex" />
     <result column="staPhone" jdbcType="VARCHAR" property="staphone" />
@@ -59,7 +59,7 @@
       staName, staSex, staPhone, 
       stajob, staAddress, staStatus, 
       staCreatetime, staModifydate, staHeadpath)
-    values (#{staid,jdbcType=INTEGER}, #{stacode,jdbcType=VARCHAR}, #{stapassword,jdbcType=INTEGER}, 
+    values (#{staid,jdbcType=INTEGER}, #{stacode,jdbcType=VARCHAR}, #{stapassword,jdbcType=VARCHAR}, 
       #{staname,jdbcType=VARCHAR}, #{stasex,jdbcType=INTEGER}, #{staphone,jdbcType=VARCHAR}, 
       #{stajob,jdbcType=INTEGER}, #{staaddress,jdbcType=VARCHAR}, #{stastatus,jdbcType=INTEGER}, 
       #{stacreatetime,jdbcType=TIMESTAMP}, #{stamodifydate,jdbcType=TIMESTAMP}, #{staheadpath,jdbcType=VARCHAR})
@@ -117,7 +117,7 @@
         #{stacode,jdbcType=VARCHAR},
       </if>
       <if test="stapassword != null">
-        #{stapassword,jdbcType=INTEGER},
+        #{stapassword,jdbcType=VARCHAR},
       </if>
       <if test="staname != null">
         #{staname,jdbcType=VARCHAR},
@@ -160,7 +160,7 @@
         staCode = #{stacode,jdbcType=VARCHAR},
       </if>
       <if test="stapassword != null">
-        staPassword = #{stapassword,jdbcType=INTEGER},
+        staPassword = #{stapassword,jdbcType=VARCHAR},
       </if>
       <if test="staname != null">
         staName = #{staname,jdbcType=VARCHAR},
@@ -200,7 +200,7 @@
     -->
     update staff
     set staCode = #{stacode,jdbcType=VARCHAR},
-      staPassword = #{stapassword,jdbcType=INTEGER},
+      staPassword = #{stapassword,jdbcType=VARCHAR},
       staName = #{staname,jdbcType=VARCHAR},
       staSex = #{stasex,jdbcType=INTEGER},
       staPhone = #{staphone,jdbcType=VARCHAR},
@@ -212,4 +212,12 @@
       staHeadpath = #{staheadpath,jdbcType=VARCHAR}
     where staId = #{staid,jdbcType=INTEGER}
   </update>
+  
+  <!-- 会员登录 -->
+  <select id="findBy" parameterType="Staff" resultType="Staff">
+  	select <include refid="Base_Column_List"></include>
+  	from staff
+  	where staCode = #{stacode} and staPassword = #{stapassword}
+  </select>
+  
 </mapper>

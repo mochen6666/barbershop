@@ -50,4 +50,9 @@ public interface StaffMapper {
      * @mbggenerated Thu Jul 09 14:43:49 CST 2020
      */
     int updateByPrimaryKey(Staff record);
+    
+    //会员登录
+    Staff findBy(Staff record);
+    
+    
 }

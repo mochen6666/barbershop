@@ -23,6 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <h1>barbershop项目配置完成</h1>
+    <h1>名庐会员系统</h1>
   </body>
 </html>

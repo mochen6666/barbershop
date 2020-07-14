@@ -28,7 +28,7 @@ public class Staff {
      *
      * @mbggenerated Thu Jul 09 14:43:49 CST 2020
      */
-    private Integer stapassword;
+    private String stapassword;
 
     /**
      *
@@ -173,7 +173,7 @@ public class Staff {
      *
      * @mbggenerated Thu Jul 09 14:43:49 CST 2020
      */
-    public Integer getStapassword() {
+    public String getStapassword() {
         return stapassword;
     }
 
@@ -185,7 +185,7 @@ public class Staff {
      *
      * @mbggenerated Thu Jul 09 14:43:49 CST 2020
      */
-    public void setStapassword(Integer stapassword) {
+    public void setStapassword(String stapassword) {
         this.stapassword = stapassword;
     }
 
