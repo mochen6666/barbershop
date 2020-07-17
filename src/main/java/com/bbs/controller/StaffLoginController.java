@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bbs.pojo.Staff;
 import com.bbs.service.StaffService;
@@ -37,14 +38,12 @@ public class StaffLoginController {
 			Staff staff = staffService.login(stacode, stapassword);
 			
 			if (staff != null) {
-				
 				HttpSession session = request.getSession();
 				
 				session.setAttribute("STAFF", staff);
 				
-				return "/staff/main";
+				return "redirect:/staff/main";
 			}
-			
 		}
 		
 		return "redirect:/staff_login_form";

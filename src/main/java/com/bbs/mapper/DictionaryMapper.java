@@ -1,5 +1,7 @@
 package com.bbs.mapper;
 
+import java.util.List;
+
 import com.bbs.pojo.Dictionary;
 
 public interface DictionaryMapper {
@@ -50,4 +52,7 @@ public interface DictionaryMapper {
      * @mbggenerated Thu Jul 09 14:43:49 CST 2020
      */
     int updateByPrimaryKey(Dictionary record);
+    
+    List<Dictionary> listDictionary();
+    
 }

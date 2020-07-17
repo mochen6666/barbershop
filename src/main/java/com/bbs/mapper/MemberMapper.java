@@ -1,6 +1,9 @@
 package com.bbs.mapper;
 
+import java.util.List;
+
 import com.bbs.pojo.Member;
+import com.bbs.pojo.Vipconsumer;
 
 public interface MemberMapper {
     /**
@@ -50,4 +53,8 @@ public interface MemberMapper {
      * @mbggenerated Thu Jul 09 14:43:49 CST 2020
      */
     int updateByPrimaryKey(Member record);
+    
+    //根据会员id查询会员信息
+    List<Member> findById(Member member);
+    
 }

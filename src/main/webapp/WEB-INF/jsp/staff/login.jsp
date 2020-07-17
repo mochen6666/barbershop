@@ -4,25 +4,25 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
-		<title>Login Page - Ace Admin</title>
+		<title>名庐理发职员系统</title>
 
 		<meta name="description" content="User login page" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
 		<!-- bootstrap & fontawesome -->
-		<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
 
 		<!-- text fonts -->
-		<link rel="stylesheet" href="assets/css/fonts.googleapis.com.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/fonts.googleapis.com.css" />
 
 		<!-- ace styles -->
-		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/ace.min.css" />
 
 		<!--[if lte IE 9]>
 			<link rel="stylesheet" href="assets/css/ace-part2.min.css" />
 		<![endif]-->
-		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/ace-rtl.min.css" />
 
 		<!--[if lte IE 9]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
@@ -45,7 +45,7 @@
 							<div class="center">
 								<h1>
 									<i class="ace-icon fa fa-leaf green"></i>
-									<span class="white" id="id-text2">欢迎登录名庐理发会员系统</span>
+									<span class="white" id="id-text2">欢迎登录名庐理发职员系统</span>
 								</h1>
 								<h4 class="blue" id="id-company-text">&copy; 北大青鸟系统</h4>
 							</div>
@@ -63,18 +63,18 @@
 
 											<div class="space-6"></div>
 
-											<form action="${pageContext.request.contextPath }/staff_login" method="post">
+											<form action="${pageContext.request.contextPath}/staff_login" method="post">
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input name="stacode" type="text" class="form-control" placeholder="Username" />
+															<input name="stacode" type="text" class="form-control" placeholder="用户名" />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input name="stapassword" type="password" class="form-control" placeholder="Password" />
+															<input name="stapassword" type="password" class="form-control" placeholder="密码" />
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
@@ -84,7 +84,7 @@
 													<div class="clearfix">
 														<label class="inline">
 															<input type="checkbox" class="ace" />
-															<span class="lbl"> Remember Me</span>
+															<span class="lbl"> 记住登录信息</span>
 														</label>
 
 														<button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
@@ -98,10 +98,105 @@
 
 										</div><!-- /.widget-main -->
 
+										<div class="toolbar clearfix">
+											<div>
+												<a href="#" data-target="#signup-box" class="user-signup-link">
+													给会员注册
+													<i class="ace-icon fa fa-arrow-right"></i>
+												</a>
+											</div>
+										</div>
 									</div><!-- /.widget-body -->
 								</div><!-- /.login-box -->
 
+								<div id="forgot-box" class="forgot-box widget-box no-border">
+									
+										<div class="toolbar center">
+											<a href="#" data-target="#login-box" class="back-to-login-link">
+												Back to login
+												<i class="ace-icon fa fa-arrow-right"></i>
+											</a>
+										</div>
+									</div><!-- /.widget-body -->
+								</div><!-- /.forgot-box -->
 
+								<div id="signup-box" class="signup-box widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header green lighter bigger">
+												<i class="ace-icon fa fa-users blue"></i>
+												新用户注册
+											</h4>
+
+											<div class="space-6"></div>
+											<p> 请输入您的详细信息: </p>
+
+											<form>
+												<fieldset>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text" class="form-control" placeholder="用户名" />
+															<i class="ace-icon fa fa-envelope"></i>
+														</span>
+													</label>
+													
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password" class="form-control" placeholder="密码" />
+															<i class="ace-icon fa fa-lock"></i>
+														</span>
+													</label>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text" class="form-control" placeholder="中文名" />
+															<i class="ace-icon fa fa-user"></i>
+														</span>
+													</label>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text" class="form-control" placeholder="电话" />
+															<i class="ace-icon fa fa-users"></i>
+														</span>
+													</label>
+													<label class="block clearfix ">
+														<span class="block input-icon input-icon-right">
+															<select class="form-control">
+																<option value ="">请输入性别</option>
+																<!-- stasex 常量表中的sex -->
+															</select>															
+														</span>
+													</label>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text" class="form-control" placeholder="暂住地址" />
+															<i class="ace-icon fa fa-users"></i>
+														</span>
+													</label>
+													
+													<div class="space-24"></div>
+
+													<div class="clearfix">
+														
+
+														<button type="submit" class="width-65 pull-right btn btn-sm btn-success">
+															<span class="bigger-110">提交</span>
+
+															<i class="ace-icon fa fa-arrow-right icon-on-right"></i>
+														</button>
+													</div>
+												</fieldset>
+											</form>
+										</div>
+
+										<div class="toolbar center">
+											<a href="#" data-target="#login-box" class="back-to-login-link">
+												<i class="ace-icon fa fa-arrow-left"></i>
+												回到登录
+											</a>
+										</div>
+									</div><!-- /.widget-body -->
+								</div><!-- /.signup-box -->
+							</div><!-- /.position-relative -->
 
 							<div class="navbar-fixed-top align-right">
 								<br />
@@ -126,7 +221,7 @@
 		<!-- basic scripts -->
 
 		<!--[if !IE]> -->
-		<script src="assets/js/jquery-2.1.4.min.js"></script>
+		<script src="${pageContext.request.contextPath }/assets/js/jquery-2.1.4.min.js"></script>
 
 		<!-- <![endif]-->
 

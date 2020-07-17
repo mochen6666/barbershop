@@ -4,28 +4,28 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
-		<title>Default Responsive(mobile) Menu - Ace Admin</title>
+		<title>名庐理发店职员登录系统</title>
 
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
 		<!-- bootstrap & fontawesome -->
-		<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
 
 		<!-- page specific plugin styles -->
 
 		<!-- text fonts -->
-		<link rel="stylesheet" href="assets/css/fonts.googleapis.com.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/fonts.googleapis.com.css" />
 
 		<!-- ace styles -->
-		<link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
 
 		<!--[if lte IE 9]>
 			<link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
 		<![endif]-->
-		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
-		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/ace-rtl.min.css" />
 
 		<!--[if lte IE 9]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
@@ -34,7 +34,7 @@
 		<!-- inline styles related to this page -->
 
 		<!-- ace settings handler -->
-		<script src="assets/js/ace-extra.min.js"></script>
+		<script src="${pageContext.request.contextPath }/assets/js/ace-extra.min.js"></script>
 
 		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
@@ -61,7 +61,7 @@
 					<a href="index.html" class="navbar-brand">
 						<small>
 							<i class="fa fa-leaf"></i>
-							欢迎您尊贵的会员
+							欢迎您${sessionScope.STAFF.staname }职员
 						</small>
 					</a>
 				</div>
@@ -72,10 +72,10 @@
 
 						<li class="light-blue dropdown-modal">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" />
+								<img class="nav-user-photo" src="${pageContext.request.contextPath }/assets/images/avatars/user.jpg" alt="Jason's Photo" />
 								<span class="user-info">
 									<small>欢迎</small>
-									张三
+									${sessionScope.STAFF.staname }
 								</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>
@@ -87,7 +87,7 @@
 								<li class="divider"></li>
 
 								<li>
-									<a href="#">
+									<a href="${pageContext.request.contextPath }/staff/logout">
 										<i class="ace-icon fa fa-power-off"></i>
 										注销
 									</a>
@@ -115,7 +115,7 @@
 					<li class="">
 						<a href="index.html">
 							<i class="menu-icon fa fa-pencil-square-o"></i>
-							<span class="menu-text"> 查看并修改会员信息 </span>
+							<span class="menu-text"> 查看并修改职工信息 </span>
 						</a>
 
 						<b class="arrow"></b>
@@ -125,26 +125,28 @@
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-credit-card"></i>
 							<span class="menu-text">
-								充值会员卡
+								增加会员
 							</span>
 						</a>
 
 						
+					<li>
+						<a href="${pageContext.request.contextPath }/staff/memcha" class="dropdown-toggle">
+							<i class="menu-icon fa fa-list"></i>
+							<span class="menu-text">查看会员消费信息</span>  						
+						</a>										
+					</li>
+					
 					<li class="">
 						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-list"></i>
-							<span class="menu-text"> 查看消费信息 </span>							
-						</a>
-
-										
+							<i class="menu-icon fa fa-book"></i>
+							<span class="menu-text"> 查看非会员消费信息 </span>							
+						</a>										
 					</li>
-
-					
-
 					<li class="">
 						<a href="widgets.html">
 							<i class="menu-icon fa fa-list-alt"></i>
-							<span class="menu-text"> 查看商品信息 </span>
+							<span class="menu-text"> 查看服务信息 </span>
 						</a>
 					</li>					
 
@@ -162,7 +164,7 @@
 							<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
 								<i class="ace-icon fa fa-cog bigger-130"></i>
 							</div>
-
+					
 							<div class="ace-settings-box clearfix" id="ace-settings-box">
 								<div class="pull-left width-50">
 									<div class="ace-settings-item">
@@ -174,53 +176,55 @@
 												<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
 											</select>
 										</div>
-										<span>&nbsp; Choose Skin</span>
+										<span>&nbsp; 选择皮肤</span>
 									</div>
-
+					
 									<div class="ace-settings-item">
 										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-navbar" autocomplete="off" />
-										<label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
+										<label class="lbl" for="ace-settings-navbar"> 固定导航栏</label>
 									</div>
-
+					
 									<div class="ace-settings-item">
 										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-sidebar" autocomplete="off" />
-										<label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+										<label class="lbl" for="ace-settings-sidebar"> 固定侧栏</label>
 									</div>
-
+					
 									<div class="ace-settings-item">
 										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-breadcrumbs" autocomplete="off" />
-										<label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
+										<label class="lbl" for="ace-settings-breadcrumbs"> 固定面包屑</label>
 									</div>
-
+					
 									<div class="ace-settings-item">
 										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" autocomplete="off" />
-										<label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
+										<label class="lbl" for="ace-settings-rtl"> 从左到右</label>
 									</div>
-
+					
 									<div class="ace-settings-item">
 										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-add-container" autocomplete="off" />
 										<label class="lbl" for="ace-settings-add-container">
-											Inside
-											<b>.container</b>
+											内部
+											<b>.容器</b>
 										</label>
 									</div>
 								</div><!-- /.pull-left -->
-
+					
 								<div class="pull-left width-50">
 									<div class="ace-settings-item">
 										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" autocomplete="off" />
-										<label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
+										<label class="lbl" for="ace-settings-hover"> 悬停子菜单</label>
 									</div>
-
+					
 									<div class="ace-settings-item">
 										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" autocomplete="off" />
-										<label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
+										<label class="lbl" for="ace-settings-compact"> 紧凑型侧边栏</label>
 									</div>
-
+					
 									<div class="ace-settings-item">
 										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" autocomplete="off" />
-										<label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
+										<label class="lbl" for="ace-settings-highlight"> 提示侧边栏活动项目</label>
 									</div>
 								</div><!-- /.pull-left -->
 							</div><!-- /.ace-settings-box -->
 						</div><!-- /.ace-settings-container -->
+
+						

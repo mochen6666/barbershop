@@ -1,11 +1,15 @@
 package com.bbs.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bbs.mapper.StaffMapper;
 import com.bbs.pojo.Staff;
+import com.bbs.pojo.Vipconsumer;
 import com.bbs.service.StaffService;
+import com.github.pagehelper.PageHelper;
 @Service
 public class StaffServiceImpl implements StaffService{
 
@@ -28,5 +32,6 @@ public class StaffServiceImpl implements StaffService{
 		staff.setStapassword(stapassword);
 		return staffMapper.findBy(staff);
 	}
+
 
 }

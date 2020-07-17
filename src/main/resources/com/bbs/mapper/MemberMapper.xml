@@ -214,4 +214,12 @@
       memHeadpath = #{memheadpath,jdbcType=VARCHAR}
     where memId = #{memid,jdbcType=INTEGER}
   </update>
+  
+  <select id="findById" parameterType="Member" resultType="Member">
+  	select <include refid="Base_Column_List"></include>,d2.valueNmae memstatusname
+  	from member m1 join dictionary d2 on m1.memStatus = d2.valueId  
+  	where d2.typeCode = 'memstatus'
+  	order by m1.memId asc
+  </select>
+  
 </mapper>

@@ -1,13 +1,16 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ include file="./commons/head.jsp" %>
 <div class="page-header">
-				<h1>欢迎${sessionScope.STAFF.staname },登录名庐会员系统 </h1>
+				<h1>欢迎${sessionScope.STAFF.staname },登录名庐职员系统 </h1>
 			</div><!-- /.page-header -->
-
+			<!-- content -->
+			
+			<!-- content -->
 			<div class="row">
 				<div class="col-xs-12">
 					<!-- PAGE CONTENT BEGINS -->
 					
+
 					<div class="alert alert-info hidden-md hidden-lg">
 						<button type="button" class="close" data-dismiss="alert">
 							<i class="ace-icon fa fa-times"></i>
