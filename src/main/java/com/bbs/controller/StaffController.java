@@ -96,6 +96,7 @@ public class StaffController {
 		model.addAttribute("pageCount",pageInfo.getPages());
 		
 		return "staff/memcha";
+		
 	}
 	
 	
