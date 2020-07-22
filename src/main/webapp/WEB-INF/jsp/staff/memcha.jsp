@@ -27,30 +27,17 @@
 												</tr>
 											</thead>
 											<tbody>
-											<c:forEach items="${ListMem }" var="member">
+											<c:forEach items="${listMem }" var="member">
 												<tr>
-													<td>member.memname</td>
-													<td>member.memphone</td>
-													<td>member.membalance</td>
-													<td>member.memstatusname</td>
+													<td>${member.memname}</td>
+													<td>${member.memphone}</td>
+													<td>${member.membalance}</td>
+													<td>${member.memstatusname}</td>
 												</tr>
 											</c:forEach>
 											</tbody>
 										</table>
-										 <ul class="pagination pull-right">
-										    <li>
-										      <a href="#" aria-label="Previous">
-										        <span aria-hidden="true">&laquo;</span>
-										      </a>
-										    </li>
-										    <li><a href="#">1</a></li>
-										    <li><a href="#">2</a></li>
-										    <li>
-										      <a href="#" aria-label="Next">
-										        <span aria-hidden="true">&raquo;</span>
-										      </a>
-										    </li>
-										  </ul>
+										 
 									</div>
 								</div>
 							</div>						

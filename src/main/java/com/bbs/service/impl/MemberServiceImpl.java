@@ -26,15 +26,20 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public PageInfo<Member> fingById(Member member, Integer pageNum, Integer pageSize) {
+	public PageInfo<Member> fingBy(Member member, Integer pageNum, Integer pageSize) {
 		
 		PageHelper.startPage(pageNum, pageSize);
 		
-		List<Member> data = memberMapper.findById(member);
+		List<Member> data = memberMapper.findBy(member);
 		
 		PageInfo<Member> pageInfo = new PageInfo<Member>(data);
 		
 		return pageInfo;
+	}
+
+	@Override
+	public int save(Member member) {
+		return memberMapper.insertSelective(member);
 	}
 	
 	

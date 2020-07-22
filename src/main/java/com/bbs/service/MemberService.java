@@ -7,6 +7,8 @@ import com.github.pagehelper.PageInfo;
 public interface MemberService {
 
 	//分页查询全部会员信息
-	PageInfo<Member> fingById(Member member,Integer pageNum,Integer pageSize);
+	PageInfo<Member> fingBy(Member member,Integer pageNum,Integer pageSize);
 	
+	//增加会员
+	int save(Member member);
 }

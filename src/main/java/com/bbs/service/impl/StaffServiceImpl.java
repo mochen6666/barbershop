@@ -33,5 +33,15 @@ public class StaffServiceImpl implements StaffService{
 		return staffMapper.findBy(staff);
 	}
 
+	@Override
+	public int modify(Staff staff) {
+		return staffMapper.updateByPrimaryKeySelective(staff);
+	}
+
+	@Override
+	public Staff all(Staff staff) {
+		return staffMapper.findBy(staff);
+	}
+
 
 }

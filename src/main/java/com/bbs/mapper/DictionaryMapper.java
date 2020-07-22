@@ -55,4 +55,10 @@ public interface DictionaryMapper {
     
     List<Dictionary> listDictionary();
     
+    List<Dictionary> listSex();
+    
+    List<Dictionary> listZw();
+    
+    List<Dictionary> listZt();
+    
 }

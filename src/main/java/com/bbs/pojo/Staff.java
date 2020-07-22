@@ -114,14 +114,45 @@ public class Staff {
     /**
      * 头像地址
      * */
-    private String staHeadpath;
+    private String staheadpath;
     
-    public String getStaHeadpath() {
-		return staHeadpath;
+    private String sex;
+    
+    private String zw;
+    
+    private String zt;
+    
+    
+    public String getSex() {
+		return sex;
 	}
 
-	public void setStaHeadpath(String staHeadpath) {
-		this.staHeadpath = staHeadpath;
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public String getZw() {
+		return zw;
+	}
+
+	public void setZw(String zw) {
+		this.zw = zw;
+	}
+
+	public String getZt() {
+		return zt;
+	}
+
+	public void setZt(String zt) {
+		this.zt = zt;
+	}
+
+	public String getStaheadpath() {
+		return staheadpath;
+	}
+
+	public void setStaheadpath(String staheadpath) {
+		this.staheadpath = staheadpath;
 	}
 
     

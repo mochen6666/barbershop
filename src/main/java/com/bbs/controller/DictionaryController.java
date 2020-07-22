@@ -31,4 +31,22 @@ public class DictionaryController {
 		return dictionaryService.listDictionary();
 	}
 	
+	@RequestMapping("/sex")
+	@ResponseBody
+	public List<Dictionary> sex(){
+		return dictionaryService.listSex();
+	}
+	
+	@RequestMapping("/zw")
+	@ResponseBody
+	public List<Dictionary> zw(){
+		return dictionaryService.listZw();
+	}
+	
+	@RequestMapping("/zt")
+	@ResponseBody
+	public List<Dictionary> zt(){
+		return dictionaryService.listZt();
+	}
+	
 }

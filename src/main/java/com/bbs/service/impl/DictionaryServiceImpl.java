@@ -27,6 +27,21 @@ public class DictionaryServiceImpl implements DictionaryService{
 		return dictionaryMapper.listDictionary();
 	}
 
+	@Override
+	public List<Dictionary> listSex() {
+		return dictionaryMapper.listSex();
+	}
+
+	@Override
+	public List<Dictionary> listZw() {
+		return dictionaryMapper.listZw();
+	}
+
+	@Override
+	public List<Dictionary> listZt() {
+		return dictionaryMapper.listZt();
+	}
+
 	
 	
 }

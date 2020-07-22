@@ -113,7 +113,7 @@
 
 				<ul class="nav nav-list">
 					<li class="">
-						<a href="index.html">
+						<a href="${pageContext.request.contextPath }/staff/modify_form">
 							<i class="menu-icon fa fa-pencil-square-o"></i>
 							<span class="menu-text"> 查看并修改职工信息 </span>
 						</a>
@@ -122,7 +122,7 @@
 					</li>
 
 					<li class="active open">
-						<a href="#" class="dropdown-toggle">
+						<a href="${pageContext.request.contextPath }/staff/new" class="dropdown-toggle">
 							<i class="menu-icon fa fa-credit-card"></i>
 							<span class="menu-text">
 								增加会员
@@ -148,7 +148,13 @@
 							<i class="menu-icon fa fa-list-alt"></i>
 							<span class="menu-text"> 查看服务信息 </span>
 						</a>
-					</li>					
+					</li>				
+					<li class="">
+						<a href="widgets.html">
+							<i class="menu-icon fa glyphicon-plus"></i>
+							<span class="menu-text"> 增加服务 </span>
+						</a>
+					</li>	
 
 				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse" style="margin-top: 580px;">
 					<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>

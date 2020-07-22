@@ -1,7 +1,8 @@
 package com.bbs.controller;
 
-
-
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,18 +11,18 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.bbs.pojo.Member;
 import com.bbs.pojo.Staff;
 import com.bbs.pojo.Vipconsumer;
 import com.bbs.service.MemberService;
+import com.bbs.service.StaffService;
 import com.bbs.service.VipconsumerService;
 import com.github.pagehelper.PageInfo;
-
-
-
 
 @Controller
 @RequestMapping("/staff")
@@ -32,6 +33,17 @@ public class StaffController {
 
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private StaffService staffService;
+
+	public StaffService getStaffService() {
+		return staffService;
+	}
+
+	public void setStaffService(StaffService staffService) {
+		this.staffService = staffService;
+	}
 
 	public MemberService getMemberService() {
 		return memberService;
@@ -69,7 +81,7 @@ public class StaffController {
 	}
 	
 	@RequestMapping("/memcha")
-	public String memcha(Member member,@RequestParam(required=false,defaultValue="1")Integer pageNum, @RequestParam(required=false,defaultValue="3")Integer pageSize,HttpServletRequest request,Model model
+	public String memcha(Member member,@RequestParam(required=false,defaultValue="1")Integer pageNum, @RequestParam(required=false,defaultValue="6")Integer pageSize,HttpServletRequest request,Model model
 			,@RequestParam(required=false)String vipname,@RequestParam(required=false)String vipstatus){
 		
 		HttpSession session = request.getSession();
@@ -85,11 +97,11 @@ public class StaffController {
 		
 		List<Vipconsumer> vipList = pageInfo.getList();
 		
-		PageInfo<Member> pageInfos = memberService.fingById(member, pageNum, pageSize); 
+		PageInfo<Member> pageInfos = memberService.fingBy(member, pageNum, pageSize); 
 		
-		List<Member> ListMem = pageInfos.getList();
+		List<Member> listMem = pageInfos.getList();
 		
-		model.addAttribute("ListMem",ListMem);
+		model.addAttribute("listMem",listMem);
 		
 		model.addAttribute("vipList",vipList);
 		
@@ -99,8 +111,108 @@ public class StaffController {
 	
 	}
 	
+	@RequestMapping("/new")
+	public String news(@ModelAttribute("member")Member member){
+		return "staff/new";
+	}
 	
+	@RequestMapping("/save")
+	public String save(Member member,HttpServletRequest request,MultipartFile file){
+		
+		String newFileName = "";
+		
+		String savePath = "";
+		
+		if (file != null && !file.isEmpty()) {
+			
+			String targetFolder = request.getServletContext().getRealPath("/uploads");
+			
+			newFileName = String.valueOf(System.currentTimeMillis());
+			
+			String extName = file.getOriginalFilename().split("\\.")[file.getOriginalFilename().split("\\.").length -1];
+			
+			newFileName = newFileName + "." + extName;
+			
+			savePath = targetFolder + File.separator + newFileName;
+			
+			try {
+				file.transferTo(new File(savePath));
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
+		if (!newFileName.equals("") && !savePath.equals("")) {
+			member.setMemheadpath(savePath);
+		}
+		
+		HttpSession session = request.getSession();
+		
+		Staff staff = (Staff) session.getAttribute("STAFF");
+		
+		member.setMemcreatestaid(staff.getStaid());
+		
+		member.setMemstatus(1);
+		
+		member.setMemcreatetime(new Date());
+		
+		memberService.save(member);
+		
+		return "redirect:/staff/memcha";
+	}
 	
+	@RequestMapping("/modify_form")
+	public String modifyForm(@ModelAttribute("staff")Staff staff,Model model){
+		
+		staff = staffService.all(staff);
+		
+		/*model.addAttribute("staff",staff);*/
+		
+		return "staff/modify";
+	}
+	
+	@RequestMapping("/modify")
+	public String modify(Staff staff,HttpServletRequest request,MultipartFile file){
+		
+		String newFileName = "";
+		
+		String savePath = "";
+		
+		if (file != null && !file.isEmpty()) {
+			
+			String targetFolder = request.getServletContext().getRealPath("/uploads");
+			
+			newFileName = String.valueOf(System.currentTimeMillis());
+			
+			String extName = file.getOriginalFilename().split("\\.")[file.getOriginalFilename().split("\\.").length -1];
+			
+			newFileName = newFileName + "." + extName;
+			
+			savePath = targetFolder + File.separator + newFileName;
+			
+			try {
+				file.transferTo(new File(savePath));
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
+		if (!newFileName.equals("") && !savePath.equals("")) {
+			staff.setStaheadpath(savePath);
+		}
+		
+		staff.setStacreatetime(new Date());
+		
+		staffService.modify(staff);
+		
+		return "redirect:/staff/memcha";
+	}
 	
 	
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ include file="./commons/head.jsp" %>
+
 <div class="page-header">
 				<h1>欢迎${sessionScope.STAFF.staname },登录名庐职员系统 </h1>
 			</div><!-- /.page-header -->

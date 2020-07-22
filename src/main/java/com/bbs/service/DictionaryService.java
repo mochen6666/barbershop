@@ -8,4 +8,10 @@ public interface DictionaryService {
 
 	List<Dictionary> listDictionary();
 	
+	List<Dictionary> listSex();
+    
+    List<Dictionary> listZw();
+    
+    List<Dictionary> listZt();
+	
 }
