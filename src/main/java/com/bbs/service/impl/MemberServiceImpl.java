@@ -36,6 +36,26 @@ public class MemberServiceImpl implements MemberService{
 		
 		return pageInfo;
 	}
+
+	@Override
+	public Member login(String memcode, String mempassword) {
+		Member member = new Member();
+		member.setMemcode(memcode);
+		member.setMempassword(mempassword);
+		return memberMapper.login(member);
+	}
+
+	@Override
+	public Member selectByPrimaryKey(Integer memid) {
+		// TODO Auto-generated method stub
+		return memberMapper.selectByPrimaryKey(memid);
+	}
+
+	@Override
+	public int updateByPrimaryKeySelective(Member member) {
+		// TODO Auto-generated method stub
+		return memberMapper.updateByPrimaryKeySelective(member);
+	}
 	
 	
 	

@@ -29,10 +29,10 @@
 											<tbody>
 											<c:forEach items="${ListMem }" var="member">
 												<tr>
-													<td>member.memname</td>
-													<td>member.memphone</td>
-													<td>member.membalance</td>
-													<td>member.memstatusname</td>
+													<td>${member.memname}</td>
+													<td>${member.memphone}</td>
+													<td>${member.membalance}</td>
+													<td>${member.memstatusname}</td>
 												</tr>
 											</c:forEach>
 											</tbody>

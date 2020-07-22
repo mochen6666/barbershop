@@ -54,5 +54,6 @@ public interface DictionaryMapper {
     int updateByPrimaryKey(Dictionary record);
     
     List<Dictionary> listDictionary();
+    List<Dictionary> listmemstatus();
     
 }

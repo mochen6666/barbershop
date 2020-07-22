@@ -31,4 +31,5 @@ public class DictionaryController {
 		return dictionaryService.listDictionary();
 	}
 	
+	
 }
