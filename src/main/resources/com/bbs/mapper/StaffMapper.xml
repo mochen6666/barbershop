@@ -219,5 +219,8 @@
   	from staff
   	where staCode = #{stacode} and staPassword = #{stapassword}
   </select>
-  
+  <select id="staname" resultType="Staff">
+  	select <include refid="Base_Column_List"></include>
+  	from staff
+  </select>
 </mapper>

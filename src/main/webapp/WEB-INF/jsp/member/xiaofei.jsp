@@ -1,131 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="./commons/head.jsp" %>
-<div class="main-container ace-save-state" id="main-container">
-			<script type="text/javascript">
-				try{ace.settings.loadState('main-container')}catch(e){}
-			</script>
 
-			<div id="sidebar" class="sidebar                  responsive                    ace-save-state">
-				<script type="text/javascript">
-					try{ace.settings.loadState('sidebar')}catch(e){}
-				</script>
-
-				
-
-				<ul class="nav nav-list">
-					<li class="">
-						<a href="${pageContext.request.contextPath }/member/modify_form?memid=${sessionScope.MEMBER.memid}">
-							<i class="menu-icon fa fa-pencil-square-o"></i>
-							<span class="menu-text"> 查看并修改会员信息 </span>
-						</a>
-
-						<b class="arrow"></b>
-					</li>
-
-					<li class="">
-						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-credit-card"></i>
-							<span class="menu-text">
-								充值会员卡
-							</span>
-						</a>
-
-						
-					<li class="">
-						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-list"></i>
-							<span class="menu-text"> 查看消费信息 </span>							
-						</a>
-
-										
-					</li>
-
-					
-
-					<li class="">
-						<a href="widgets.html">
-							<i class="menu-icon fa fa-list-alt"></i>
-							<span class="menu-text"> 查看服务信息 </span>
-						</a>
-					</li>					
-
-				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse" style="margin-top: 580px;">
-					<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
-				</div>
-			</div>
-
-			<div class="main-content">
-				<div class="main-content-inner">
-					
-
-					<div class="page-content">
-						<div class="ace-settings-container" id="ace-settings-container">
-							<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
-								<i class="ace-icon fa fa-cog bigger-130"></i>
-							</div>
-					
-							<div class="ace-settings-box clearfix" id="ace-settings-box">
-								<div class="pull-left width-50">
-									<div class="ace-settings-item">
-										<div class="pull-left">
-											<select id="skin-colorpicker" class="hide">
-												<option data-skin="no-skin" value="#438EB9">#438EB9</option>
-												<option data-skin="skin-1" value="#222A2D">#222A2D</option>
-												<option data-skin="skin-2" value="#C6487E">#C6487E</option>
-												<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-											</select>
-										</div>
-										<span>&nbsp; 选择皮肤</span>
-									</div>
-					
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-navbar" autocomplete="off" />
-										<label class="lbl" for="ace-settings-navbar"> 固定导航栏</label>
-									</div>
-					
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-sidebar" autocomplete="off" />
-										<label class="lbl" for="ace-settings-sidebar"> 固定侧栏</label>
-									</div>
-					
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-breadcrumbs" autocomplete="off" />
-										<label class="lbl" for="ace-settings-breadcrumbs"> 固定面包屑</label>
-									</div>
-					
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" autocomplete="off" />
-										<label class="lbl" for="ace-settings-rtl"> 从左到右</label>
-									</div>
-					
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-add-container" autocomplete="off" />
-										<label class="lbl" for="ace-settings-add-container">
-											内部
-											<b>.容器</b>
-										</label>
-									</div>
-								</div><!-- /.pull-left -->
-					
-								<div class="pull-left width-50">
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" autocomplete="off" />
-										<label class="lbl" for="ace-settings-hover"> 悬停子菜单</label>
-									</div>
-					
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" autocomplete="off" />
-										<label class="lbl" for="ace-settings-compact"> 紧凑型侧边栏</label>
-									</div>
-					
-									<div class="ace-settings-item">
-										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" autocomplete="off" />
-										<label class="lbl" for="ace-settings-highlight"> 提示侧边栏活动项目</label>
-									</div>
-								</div><!-- /.pull-left -->
-							</div><!-- /.ace-settings-box -->
-						</div><!-- /.ace-settings-container -->
 <div class="page-header">
 				<h1>欢迎${sessionScope.MEMBER.memname },登录名庐理发店会员系统 </h1>
 			</div><!-- /.page-header -->
@@ -135,7 +11,90 @@
 				</c:if>
 			</div>
 			<!-- content -->
-			
+			<div class="page-header">
+							<h1>欢迎登录名庐会员系统 </h1>
+						</div><!-- /.page-header -->
+						<!-- content -->
+						<div class="row">
+								<div class="clo-md-12">
+									<div class="panel panel-warning">
+										<div class="panel-heading">
+											<h4>搜索类型</h4>
+										</div>
+										<div class="panel-body">
+											<form action="${pageContext.request.contextPath }/member/cha" method="post" class="form-horizontal">
+												<div class="row">
+
+													<div class="col-md-3">
+														<div class="form-group">
+															<label class="control-label col-md-4">消费类型</label>
+															<div class="col-md-8">
+																<select class="form-control" name="servicename" id="vip_sername">
+																	
+																</select>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-3">
+														<div class="form-group">
+															<label class="control-label col-md-4">负责职工</label>
+															<!-- vipjobid 关联staff的staid 显示职工名称 -->
+															<div class="col-md-8">
+																<select class="form-control"  name="vipjobid" id="vip_staname">
+																	
+																</select>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-3">
+														<div class="form-group">
+														<div class="col-md-8 col-md-offset-4">
+																<button type="submit" class="btn btn-danger btn-block">搜索消费信息</button>
+															</div>
+														</div>
+													</div>
+												</div>								
+											</form>
+										</div>						
+									</div>
+									<div class="panel panel-info" style="margin-bottom: 60px;">
+										<div class="panel-heading">
+											<h4>消费信息</h4>
+										</div>
+										<div class="panel-body">
+											<div class="row">
+												<div class="clo-md-12">
+													<table class="table table-bordered table-hover table-striped">
+														<thead>
+															<tr>
+																<th>会员编号</th>
+																<th>会员名称</th>
+																<th>服务类型</th>
+																<th>负责的职工</th>
+																<th>消费时间</th>
+															</tr>
+														</thead>
+														<tbody>
+															<c:forEach items="${listvip }" var="a">
+															<tr>
+																<td>${a.vipnum }</td>
+																<td>${a.vipname }</td>
+																<td>${a.servicename }</td>
+																<td>${a.staname }</td>
+																<td>${a.vipcreatetime }</td>												
+															</tr>
+															</c:forEach>
+														</tbody>
+													</table>
+													 
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- content -->
 			<!-- content -->
 			<div class="row">
 				<div class="col-xs-12">
@@ -177,5 +136,34 @@
 	</div>
 </div><!-- /.main-content -->
 <%@ include file="./commons/foot.jsp" %>
+<script type="text/javascript">
+	//获取会员状态
+	$.ajax({
+		url:'${pageContext.request.contextPath }/data/staname',
+		dataType:'json',
+		success:function(data){
+			var vip_staname = $('#vip_staname');
+			var defaultOption = $('<option value="0">选择职工姓名</option>');
+			defaultOption.appendTo(vip_staname);
+			$(data).each(function(index){
+				var option = $('<option value="'+data[index].staid+'">'+data[index].staname+'</option>');
+				option.appendTo(vip_staname);
+			});
+		}
+	});
+	$.ajax({
+		url:'${pageContext.request.contextPath }/data/sername',
+		dataType:'json',
+		success:function(data){
+			var vip_sername = $('#vip_sername');
+			var defaultOption = $('<option value="0">选择服务类型</option>');
+			defaultOption.appendTo(vip_sername);
+			$(data).each(function(index){
+				var option = $('<option value="'+data[index].sername+'">'+data[index].sername+'</option>');
+				option.appendTo(vip_sername);
+			});
+		}
+	});
+</script>
   </body>
 </html>

@@ -1,5 +1,7 @@
 package com.bbs.mapper;
 
+import java.util.List;
+
 import com.bbs.pojo.Staff;
 
 public interface StaffMapper {
@@ -53,6 +55,7 @@ public interface StaffMapper {
     
     //会员登录
     Staff findBy(Staff record);
-    
+    //查询职工名字
+    List<Staff> staname();
     
 }

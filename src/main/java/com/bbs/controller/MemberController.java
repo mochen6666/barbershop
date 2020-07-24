@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.bbs.pojo.Member;
+import com.bbs.pojo.Vipconsumer;
 import com.bbs.service.MemberService;
+import com.bbs.service.VipconsumerService;
 
 
 @Controller
@@ -27,6 +29,17 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private VipconsumerService vipconsumerService;
+	
+
+	public VipconsumerService getVipconsumerService() {
+		return vipconsumerService;
+	}
+
+	public void setVipconsumerService(VipconsumerService vipconsumerService) {
+		this.vipconsumerService = vipconsumerService;
+	}
 
 	public MemberService getMemberService() {
 		return memberService;
@@ -100,5 +113,19 @@ public class MemberController {
 		HttpSession session=request.getSession();
 		session.setAttribute("message", "会员信息已成功修改");
 		return"member/main";
+	}
+	
+	@RequestMapping("/cha")
+	public String chaFormf(Model model,HttpServletRequest request,@RequestParam(required=false)String servicename,@RequestParam(required=false)Long vipjobid){
+		HttpSession session=request.getSession();
+		Member member=(Member) session.getAttribute("MEMBER");
+		Vipconsumer vipconsumer= new Vipconsumer();
+			vipconsumer.setVipnum(member.getMemid());	
+			vipconsumer.setServicename(servicename);
+			vipconsumer.setVipjobid(vipjobid);
+			System.out.println(vipjobid);
+			List<Vipconsumer>list=vipconsumerService.cha(vipconsumer);
+			model.addAttribute("listvip", list);
+			return"member/xiaofei";
 	}
 }

@@ -200,6 +200,23 @@
     </where>
     order by v1.vipId asc
   </select>
+  <select id="cha" parameterType="Vipconsumer" resultType="Vipconsumer">
+  	 select <include refid="Base_Column_List1" />,f.staName staname
+    from vipconsumer v1 join service s on v1.serviceName=s.serName
+     join staff f on f.staId=v1.vipJobid
+     join member m on m.memId=v1.vipNum   
+    <where>
+    	 and v1.vipNum=#{vipnum}
+    	 <if test="servicename != null and servicename != '' ">
+    	 	and serviceName like concat('%',#{servicename},'%') 
+    	 </if> 
+    	<if test="vipjobid != null and vipjobid > 0 ">
+    	 	and vipJobid = #{vipjobid}
+    	 </if>
+    	
+    </where>
+    order by v1.vipId asc
+  </select>
   
   
 </mapper>

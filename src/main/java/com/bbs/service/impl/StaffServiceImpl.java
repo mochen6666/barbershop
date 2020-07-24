@@ -33,5 +33,11 @@ public class StaffServiceImpl implements StaffService{
 		return staffMapper.findBy(staff);
 	}
 
+	@Override
+	public List<Staff> staname() {
+		// TODO Auto-generated method stub
+		return staffMapper.staname();
+	}
+
 
 }

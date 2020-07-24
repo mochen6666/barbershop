@@ -9,5 +9,6 @@ public interface StaffService {
 
     Staff login(String stacode,String stapassword);
     
-    
+    //查询职工名字
+    List<Staff> staname();
 }

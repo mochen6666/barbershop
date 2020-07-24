@@ -1,5 +1,7 @@
 package com.bbs.mapper;
 
+import java.util.List;
+
 import com.bbs.pojo.Service;
 
 public interface ServiceMapper {
@@ -50,4 +52,5 @@ public interface ServiceMapper {
      * @mbggenerated Thu Jul 09 14:43:49 CST 2020
      */
     int updateByPrimaryKey(Service record);
+    List<Service> serName();
 }

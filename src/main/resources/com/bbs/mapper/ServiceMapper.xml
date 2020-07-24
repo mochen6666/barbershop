@@ -143,4 +143,10 @@
       serCreatetime = #{sercreatetime,jdbcType=TIMESTAMP}
     where serId = #{serid,jdbcType=INTEGER}
   </update>
+  <select id="serName" resultType="Service">
+  		select 
+    <include refid="Base_Column_List" />
+    from service
+  
+  </select>
 </mapper>
