@@ -1,5 +1,7 @@
 package com.bbs.mapper;
 
+import java.util.List;
+
 import com.bbs.pojo.Consumption;
 
 public interface ConsumptionMapper {
@@ -50,4 +52,7 @@ public interface ConsumptionMapper {
      * @mbggenerated Thu Jul 09 14:43:49 CST 2020
      */
     int updateByPrimaryKey(Consumption record);
+    
+    //查询非会员信息
+    List<Consumption> findBy(Consumption consumption);
 }

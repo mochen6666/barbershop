@@ -38,5 +38,7 @@ public class VipconsumerServiceImpl implements VipconsumerService{
 	}
 
 	
+
+	
 	
 }

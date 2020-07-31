@@ -14,9 +14,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.bbs.pojo.Member;
+import com.bbs.pojo.Service;
 import com.bbs.pojo.Staff;
 import com.bbs.pojo.Vipconsumer;
 import com.bbs.service.MemberService;
@@ -91,7 +93,7 @@ public class StaffController {
 		Vipconsumer vipconsumer = new Vipconsumer();
 		vipconsumer.setVipid(staff.getStaid());
 		vipconsumer.setVipname(vipname);
-		vipconsumer.setVipstatus(vipstatus);
+		vipconsumer.setVipstatus("1");
 		
 		PageInfo<Vipconsumer> pageInfo = vipconsumerService.search(vipconsumer, pageNum, pageSize);
 		
@@ -146,7 +148,7 @@ public class StaffController {
 		}
 		
 		if (!newFileName.equals("") && !savePath.equals("")) {
-			member.setMemheadpath(savePath);
+			member.setMemheadpath(newFileName);
 		}
 		
 		HttpSession session = request.getSession();
@@ -165,11 +167,11 @@ public class StaffController {
 	}
 	
 	@RequestMapping("/modify_form")
-	public String modifyForm(@ModelAttribute("staff")Staff staff,Model model){
+	public String modifyForm(@ModelAttribute("staff")Staff staff,Model model,int staid){
 		
-		staff = staffService.all(staff);
+		staff = staffService.all(staid);
 		
-		/*model.addAttribute("staff",staff);*/
+		model.addAttribute("staff",staff);
 		
 		return "staff/modify";
 	}
@@ -204,15 +206,21 @@ public class StaffController {
 		}
 		
 		if (!newFileName.equals("") && !savePath.equals("")) {
-			staff.setStaheadpath(savePath);
+			staff.setStaheadpath(newFileName);
 		}
 		
-		staff.setStacreatetime(new Date());
+		
+		staff.setStamodifydate(new Date());
 		
 		staffService.modify(staff);
 		
 		return "redirect:/staff/memcha";
 	}
 	
+	@RequestMapping("/sta")
+	@ResponseBody
+	public List<Service> sta(){
+		return staffService.sta();
+	}
 	
 }

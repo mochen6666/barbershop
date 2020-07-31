@@ -15,6 +15,12 @@
 				<div class="col-md-10 col-md-offset-1">
 					<fm:form modelAttribute="staff" enctype="multipart/form-data" action="${pageContext.request.contextPath }/staff/modify" method="post" class="form-horizontal">
 						<div class="form-group">
+							<div class="form-group hidden">
+								<label class="control-label col-md-2">服务id</label>
+								<div class="col-md-10">
+									<fm:input type="text" path="staid" class="form-control"/>
+								</div>
+							</div>
 							<label class="control-label col-md-2">职工名称</label>
 							<div class="col-md-10">
 								<fm:input type="text" path="staname" class="form-control" />

@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
 	<head>
@@ -90,6 +91,9 @@
 														<button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
 															登录 
 														</button>
+														<c:if test="${message != null and  message != ''}">
+			  												<div class="alert alert-info">${message }</div>
+			  											</c:if>
 													</div>
 
 													<div class="space-4"></div>
@@ -101,7 +105,7 @@
 										<div class="toolbar clearfix">
 											<div>
 												<a href="#" data-target="#signup-box" class="user-signup-link">
-													给会员注册
+													给职员注册
 													<i class="ace-icon fa fa-arrow-right"></i>
 												</a>
 											</div>
@@ -131,44 +135,42 @@
 											<div class="space-6"></div>
 											<p> 请输入您的详细信息: </p>
 
-											<form>
+											<form action="${pageContext.request.contextPath }/register" method="post">
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="用户名" />
+															<input name="stacode" type="text" class="form-control" placeholder="用户名" />
 															<i class="ace-icon fa fa-envelope"></i>
 														</span>
 													</label>
 													
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="密码" />
+															<input name="stapassword" type="password" class="form-control" placeholder="密码" />
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="中文名" />
+															<input name="staname" type="text" class="form-control" placeholder="中文名" />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="电话" />
+															<input name="staphone" type="text" class="form-control" placeholder="电话" />
 															<i class="ace-icon fa fa-users"></i>
 														</span>
 													</label>
 													<label class="block clearfix ">
 														<span class="block input-icon input-icon-right">
-															<select class="form-control">
-																<option value ="">请输入性别</option>
-																<!-- stasex 常量表中的sex -->
+															<select name="stasex" id="stasex" class="form-control">
 															</select>															
 														</span>
 													</label>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="暂住地址" />
+															<input name="staaddress" type="text" class="form-control" placeholder="暂住地址" />
 															<i class="ace-icon fa fa-users"></i>
 														</span>
 													</label>
@@ -270,6 +272,21 @@
 			 });
 			 
 			});
+			
+	//职工性别
+	$.ajax({
+		url:'${pageContext.request.contextPath }/data/sex',
+		dataType:'json',
+		success:function(data){
+			var stasex = $('#stasex');
+			var defaultOption = $('<option value="0">选择职工性别</option>');
+			defaultOption.appendTo(stasex);
+			$(data).each(function(index){
+				var option = $('<option value="'+data[index].valueid+'">'+data[index].valuenmae+'</option>');
+				option.appendTo(stasex);
+			});
+		}
+	});
 		</script>
 	</body>
 </html>

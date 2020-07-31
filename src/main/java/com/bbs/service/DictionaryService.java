@@ -3,6 +3,8 @@ package com.bbs.service;
 import java.util.List;
 
 import com.bbs.pojo.Dictionary;
+import com.bbs.pojo.Vipconsumer;
+import com.github.pagehelper.PageInfo;
 
 public interface DictionaryService {
 
@@ -14,4 +16,6 @@ public interface DictionaryService {
     
     List<Dictionary> listZt();
 	
+  
+    
 }

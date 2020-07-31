@@ -39,8 +39,18 @@ public class StaffServiceImpl implements StaffService{
 	}
 
 	@Override
-	public Staff all(Staff staff) {
-		return staffMapper.findBy(staff);
+	public Staff all(Integer staid) {
+		return staffMapper.selectByPrimaryKey(staid);
+	}
+
+	@Override
+	public List<com.bbs.pojo.Service> sta() {
+		return staffMapper.sta();
+	}
+
+	@Override
+	public int register(Staff staff) {
+		return staffMapper.insertSelective(staff);
 	}
 
 

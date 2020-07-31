@@ -122,8 +122,17 @@ public class Staff {
     
     private String zt;
     
+    private String stajobname;
     
-    public String getSex() {
+    public String getStajobname() {
+		return stajobname;
+	}
+
+	public void setStajobname(String stajobname) {
+		this.stajobname = stajobname;
+	}
+
+	public String getSex() {
 		return sex;
 	}
 

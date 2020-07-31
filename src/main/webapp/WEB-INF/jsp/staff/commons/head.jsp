@@ -113,7 +113,7 @@
 
 				<ul class="nav nav-list">
 					<li class="">
-						<a href="${pageContext.request.contextPath }/staff/modify_form">
+						<a href="${pageContext.request.contextPath }/staff/modify_form?staid=${sessionScope.STAFF.staid}">
 							<i class="menu-icon fa fa-pencil-square-o"></i>
 							<span class="menu-text"> 查看并修改职工信息 </span>
 						</a>
@@ -138,19 +138,19 @@
 					</li>
 					
 					<li class="">
-						<a href="#" class="dropdown-toggle">
+						<a href="${pageContext.request.contextPath }/con/nonmemcha" class="dropdown-toggle">
 							<i class="menu-icon fa fa-book"></i>
 							<span class="menu-text"> 查看非会员消费信息 </span>							
 						</a>										
 					</li>
 					<li class="">
-						<a href="widgets.html">
+						<a href="${pageContext.request.contextPath }/service/service_list">
 							<i class="menu-icon fa fa-list-alt"></i>
 							<span class="menu-text"> 查看服务信息 </span>
 						</a>
 					</li>				
 					<li class="">
-						<a href="widgets.html">
+						<a href="${pageContext.request.contextPath }/service/save_form">
 							<i class="menu-icon fa glyphicon-plus"></i>
 							<span class="menu-text"> 增加服务 </span>
 						</a>

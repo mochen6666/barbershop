@@ -90,7 +90,7 @@
       <if test="staphone != null">
         staPhone,
       </if>
-      <if test="stajob != null">
+      <if test="stajob != null and stajob > 0">
         stajob,
       </if>
       <if test="staaddress != null">
@@ -220,5 +220,10 @@
   	where staCode = #{stacode} and staPassword = #{stapassword}
   </select>
   
+  <select id="sta" parameterType="Staff" resultType="Staff">
+  	 select <include refid="Base_Column_List" />,s1.staName stajobname
+    from staff s1 join service s2 on s1.stajob = s2.jobid
+    order by s1.staId asc
+  </select>
   
 </mapper>

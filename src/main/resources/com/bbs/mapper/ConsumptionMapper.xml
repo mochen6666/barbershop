@@ -130,4 +130,11 @@
       conCreatetime = #{concreatetime,jdbcType=TIMESTAMP}
     where conId = #{conid,jdbcType=INTEGER}
   </update>
+  
+  <select id="findBy" parameterType="Consumption" resultType="Consumption">
+  	 select <include refid="Base_Column_List" />,s2.staName conjobname
+    from consumption c1 join staff s2 on c1.conjobid = s2.stajob
+    order by c1.conId asc
+  </select>
+  
 </mapper>
