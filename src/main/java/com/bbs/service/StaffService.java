@@ -21,4 +21,7 @@ public interface StaffService {
     
     //职员注册
     int register(Staff staff);
+    //查询职工名字
+    List<Staff> staname();
+
 }

@@ -55,8 +55,12 @@ public interface ServiceMapper {
      * @mbggenerated Thu Jul 09 14:43:49 CST 2020
      */
     int updateByPrimaryKey(Service record);
+
     
     List<Service> list(Service service);
     
     
+
+    List<Service> serName();
+
 }

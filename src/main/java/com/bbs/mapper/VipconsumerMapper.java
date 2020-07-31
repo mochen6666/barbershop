@@ -56,5 +56,5 @@ public interface VipconsumerMapper {
     int updateByPrimaryKey(Vipconsumer record);
     
     List<Vipconsumer> search(Vipconsumer vipconsumer);
-    
+    List<Vipconsumer> cha(Vipconsumer vipconsumer);
 }

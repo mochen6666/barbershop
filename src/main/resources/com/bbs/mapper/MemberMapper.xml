@@ -194,7 +194,7 @@
       <if test="membalance != null">
         memBalance = #{membalance,jdbcType=INTEGER},
       </if>
-      <if test="memstatus != null">
+      <if test="memstatus != null and memstatus>0">
         memStatus = #{memstatus,jdbcType=INTEGER},
       </if>
       <if test="memheadpath != null">
@@ -230,5 +230,11 @@
   	where d2.typeCode = 'memstatus'
   	order by m1.memBalance desc
   </select>
-  
+  <select id="login" parameterType="Member" resultType="Member">
+  	select 
+    <include refid="Base_Column_List" />
+    from member
+    where memCode = #{memcode} and
+      memPassword = #{mempassword}
+  </select>
 </mapper>

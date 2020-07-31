@@ -149,7 +149,7 @@
   	from dictionary
   	where typeCode = 'memstatus'
   </select>
-  
+ 
   <select id="listSex" resultType="Dictionary">
   	select <include refid="Base_Column_List"></include>
   	from dictionary
@@ -167,5 +167,6 @@
   	from dictionary
   	where typeCode = 'stastatus'
   </select>
+
   
 </mapper>

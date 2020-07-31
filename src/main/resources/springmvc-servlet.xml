@@ -56,6 +56,10 @@
 			<mvc:mapping path="/staff/**"/>
 			<bean class="com.bbs.controller.interceptor.StaffInterceptor"></bean>
 		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/member/**"/>
+			<bean class="com.bbs.controller.interceptor.MemberInterceptor"></bean>
+		</mvc:interceptor>
 	</mvc:interceptors>
 	
 	<!-- 全局异常 -->
@@ -71,6 +75,7 @@
 	<mvc:resources location="/uploads/" mapping="/uploads/**"></mvc:resources>
 	
 	<mvc:resources location="/static/" mapping="/**"></mvc:resources>
+
 	
 	<!-- 配置文件上传 -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

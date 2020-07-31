@@ -27,6 +27,7 @@ public class DictionaryServiceImpl implements DictionaryService{
 		return dictionaryMapper.listDictionary();
 	}
 
+
 	@Override
 	public List<Dictionary> listSex() {
 		return dictionaryMapper.listSex();

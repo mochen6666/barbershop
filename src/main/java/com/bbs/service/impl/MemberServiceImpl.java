@@ -38,8 +38,39 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
+
 	public int save(Member member) {
 		return memberMapper.insertSelective(member);
+	}
+	public Member login(String memcode, String mempassword) {
+		Member member = new Member();
+		member.setMemcode(memcode);
+		member.setMempassword(mempassword);
+		return memberMapper.login(member);
+	}
+
+	@Override
+	public Member selectByPrimaryKey(Integer memid) {
+		// TODO Auto-generated method stub
+		return memberMapper.selectByPrimaryKey(memid);
+	}
+
+	@Override
+	public int updateByPrimaryKeySelective(Member member) {
+		// TODO Auto-generated method stub
+		return memberMapper.updateByPrimaryKeySelective(member);
+
+	}
+
+	@Override
+	public PageInfo<Member> fingById(Member member, Integer pageNum, Integer pageSize) {
+		PageHelper.startPage(pageNum, pageSize);
+		
+		List<Member> data = memberMapper.findById(member);
+		
+		PageInfo<Member> pageInfo = new PageInfo<Member>(data);
+		
+		return pageInfo;
 	}
 	
 	

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bbs.mapper.ServiceMapper;
+
 import com.bbs.pojo.Vipconsumer;
 import com.bbs.service.ServiceService;
 import com.github.pagehelper.PageHelper;
@@ -57,12 +58,12 @@ public class ServiceServiceImpl implements ServiceService{
 
 
 
-	
 
-	
+	@Override
+	public List<com.bbs.pojo.Service> serName() {
+		// TODO Auto-generated method stub
+		return serviceMapper.serName();
+	}
 
-	
-	
-	
-	
+
 }

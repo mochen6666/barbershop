@@ -37,6 +37,14 @@ public class VipconsumerServiceImpl implements VipconsumerService{
 		return pageInfo;
 	}
 
+	@Override
+	public List<Vipconsumer> cha(Vipconsumer vipconsumer) {
+		// TODO Auto-generated method stub
+		List<Vipconsumer> data = VipconsumerMapper.cha(vipconsumer);
+
+		return data;
+	}
+
 	
 
 	

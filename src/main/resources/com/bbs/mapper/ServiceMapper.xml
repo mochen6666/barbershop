@@ -148,6 +148,7 @@
       serCreatetime = #{sercreatetime,jdbcType=TIMESTAMP}
     where serId = #{serid,jdbcType=INTEGER}
   </update>
+
   
   <select id="list" parameterType="Service" resultType="Service">
   	 select <include refid="Base_Column_List" />,s2.staName vipjobname
@@ -156,4 +157,12 @@
   </select>
   
   
+
+  <select id="serName" resultType="Service">
+  		select 
+    <include refid="Base_Column_List" />
+    from service
+  
+  </select>
+
 </mapper>

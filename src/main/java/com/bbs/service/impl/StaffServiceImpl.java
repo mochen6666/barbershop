@@ -52,6 +52,11 @@ public class StaffServiceImpl implements StaffService{
 	public int register(Staff staff) {
 		return staffMapper.insertSelective(staff);
 	}
+	public List<Staff> staname() {
+		// TODO Auto-generated method stub
+		return staffMapper.staname();
+
+	}
 
 
 }

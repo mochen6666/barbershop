@@ -1,6 +1,9 @@
 package com.bbs.service;
 
 
+
+import java.util.List;
+
 import com.bbs.pojo.Service;
 import com.github.pagehelper.PageInfo;
 
@@ -20,4 +23,9 @@ public interface ServiceService {
 	
 	//删除服务
 	int del(Integer serid);
+
+
+	//查询服务名字
+	 List<Service> serName();
+
 }

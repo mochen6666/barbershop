@@ -57,6 +57,10 @@ public interface MemberMapper {
     //查询会员信息
     List<Member> findBy(Member member);
     
-   
+
+    //根据会员id查询会员信息
+    List<Member> findById(Member member);
+    
+    Member  login(Member member);
     
 }

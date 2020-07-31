@@ -219,6 +219,7 @@
   	from staff
   	where staCode = #{stacode} and staPassword = #{stapassword}
   </select>
+
   
   <select id="sta" parameterType="Staff" resultType="Staff">
   	 select <include refid="Base_Column_List" />,s1.staName stajobname
@@ -226,4 +227,10 @@
     order by s1.staId asc
   </select>
   
+
+  <select id="staname" resultType="Staff">
+  	select <include refid="Base_Column_List"></include>
+  	from staff
+  </select>
+
 </mapper>
