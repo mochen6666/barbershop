@@ -121,7 +121,7 @@
 						<b class="arrow"></b>
 					</li>
 
-					<li class="active open">
+					<li class="">
 						<a href="${pageContext.request.contextPath }/staff/new" class="dropdown-toggle">
 							<i class="menu-icon fa fa-credit-card"></i>
 							<span class="menu-text">

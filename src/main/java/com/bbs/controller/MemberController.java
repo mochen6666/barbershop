@@ -119,8 +119,7 @@ public class MemberController {
 		member.setMemmodifyby(member.getMemid());
 		member.setMemcreatetime(new Date());
 		memberService.updateByPrimaryKeySelective(member);
-		HttpSession session=request.getSession();
-		session.setAttribute("message", "会员信息已成功修改");
+		
 		return"member/main";
 	}
 
@@ -137,5 +136,33 @@ public class MemberController {
 			List<Vipconsumer>list=vipconsumerService.cha(vipconsumer);
 			model.addAttribute("listvip", list);
 			return"member/xiaofei";
+	}
+	@RequestMapping("/cz_form")
+	public String czForm(@ModelAttribute("member")Member member, Model  model,int memid){
+		 member =memberService.selectByPrimaryKey(memid);
+		model.addAttribute("member",member);
+		return "member/chongzhi";
+	}
+	@RequestMapping("/cz")
+	public String modify(HttpServletRequest request ,Member member){
+		HttpSession session=request.getSession();
+		Member members=(Member) session.getAttribute("MEMBER");
+		int x= members.getMembalance();
+		int balance=member.getMembalance();
+		if( balance>0 && balance<200 ){
+			balance = member.getMembalance()+x;
+		}else if(balance>=200&&balance<400){
+			balance =member.getMembalance()+100+x;
+		}else if(balance>=400&&balance<1000){
+			balance =member.getMembalance()+288+x;
+		}else if(balance>=1000){
+			balance =member.getMembalance()+600+x;
+		}
+		member.setMembalance(balance);
+		member.setMemmodifyby(member.getMemid());
+		member.setMemcreatetime(new Date());
+		memberService.updateByPrimaryKeySelective(member);
+		
+		return"member/main";
 	}
 }

@@ -54,6 +54,21 @@ public class ServiceController {
 		
 		return "staff/servicecha";
 	}
+	@RequestMapping("/service_lists")
+	public String serviceLists(HttpServletRequest request,Model model,@RequestParam(required=false,defaultValue="1")Integer pageNum, @RequestParam(required=false,defaultValue="6")Integer pageSize){
+		
+		
+		Service service = new Service();
+		PageInfo<Service> pageInfo = serviceService.list(service, pageNum, pageSize);
+		
+		List<Service> serList = pageInfo.getList();
+		
+		model.addAttribute("serList", serList);
+		
+		model.addAttribute("pageCount",pageInfo.getPages());
+		
+		return "member/servicecha";
+	}
 	
 	@RequestMapping("modify_form")
 	public String modifyForm(@ModelAttribute("service") Service service,Model model,int serid){

@@ -150,6 +150,16 @@ public class StaffController {
 		if (!newFileName.equals("") && !savePath.equals("")) {
 			member.setMemheadpath(newFileName);
 		}
+		int balance=member.getMembalance();
+		if( balance>0 && balance<200 ){
+			balance = member.getMembalance();
+		}else if(balance>=200&&balance<400){
+			balance =member.getMembalance()+100;
+		}else if(balance>=400&&balance<1000){
+			balance =member.getMembalance()+288;
+		}else if(balance>=1000){
+			balance =member.getMembalance()+600;
+		}
 		
 		HttpSession session = request.getSession();
 		
@@ -160,6 +170,7 @@ public class StaffController {
 		member.setMemstatus(1);
 		
 		member.setMemcreatetime(new Date());
+		member.setMembalance(balance);
 		
 		memberService.save(member);
 		

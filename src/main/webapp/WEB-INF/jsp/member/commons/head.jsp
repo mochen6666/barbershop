@@ -121,7 +121,7 @@
 					</li>
 
 					<li class="">
-						<a href="#" class="dropdown-toggle">
+						<a href="${pageContext.request.contextPath }/member/cz_form?memid=${sessionScope.MEMBER.memid}" class="dropdown-toggle">
 							<i class="menu-icon fa fa-credit-card"></i>
 							<span class="menu-text">
 								充值会员卡
@@ -141,7 +141,7 @@
 					
 
 					<li class="">
-						<a href="widgets.html">
+						<a href="${pageContext.request.contextPath }/service/service_lists">
 							<i class="menu-icon fa fa-list-alt"></i>
 							<span class="menu-text"> 查看服务信息 </span>
 						</a>

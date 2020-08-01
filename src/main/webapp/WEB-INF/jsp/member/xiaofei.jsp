@@ -11,9 +11,7 @@
 				</c:if>
 			</div>
 			<!-- content -->
-			<div class="page-header">
-							<h1>欢迎登录名庐会员系统 </h1>
-						</div><!-- /.page-header -->
+			
 						<!-- content -->
 						<div class="row">
 								<div class="clo-md-12">
