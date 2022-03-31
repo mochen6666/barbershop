@@ -8,7 +8,7 @@
   <!-- web版本与jar版本 -->
   <properties>
   	<webVersion>3.1</webVersion>
-  	<spring.version>4.3.18.RELEASE</spring.version>
+  	<spring.version>5.3.18</spring.version>
   </properties>
   
   <dependencies>
